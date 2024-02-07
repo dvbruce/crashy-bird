@@ -6,12 +6,13 @@ input.onButtonPressed(Button.B, function () {
 })
 let emptyObstacleY = 0
 let Bird: game.LedSprite = null
+game.setScore(0)
 let ticks = 0
 let obstacle: game.LedSprite[] = []
 Bird = game.createSprite(0, 2)
 Bird.set(LedSpriteProperty.Blink, 300)
 basic.forever(function () {
-    while (obstacle.length > 0 && obstacle[0] == 0) {
+    while (obstacle.length > 0 && obstacle[0].get(LedSpriteProperty.X) == 0) {
         obstacle.removeAt(0).delete()
     }
     for (let obstacle2 of obstacle) {
@@ -30,6 +31,7 @@ basic.forever(function () {
             game.gameOver()
         }
     }
+    game.setScore(Math.floor(ticks / 3 - 1))
     ticks += 1
     basic.pause(1000)
 })
