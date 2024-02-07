@@ -2,8 +2,7 @@ input.onButtonPressed(Button.A, function () {
     Bird.change(LedSpriteProperty.Y, -1)
 })
 input.onButtonPressed(Button.B, function () {
-    let sprite: game.LedSprite = null
-    sprite.change(LedSpriteProperty.Y, 1)
+    Bird.change(LedSpriteProperty.Y, 1)
 })
 let emptyObstacleY = 0
 let Bird: game.LedSprite = null
